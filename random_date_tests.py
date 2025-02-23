@@ -1,4 +1,5 @@
 import unittest
+import zmq
 
 from random_date_service import (
     generate_random_date
@@ -7,17 +8,28 @@ from random_date_service import (
 
 
 
-
-
 class TestAddFunction(unittest.TestCase):
     def test_generate_date_time_1(self):
-        self.assertEqual(generate_random_date(1, 2), 3)
+        context = zmq.Context()
 
-    def test_generate_date_time_2(self):
-        self.assertEqual(generate_random_date(-1, -2), -3)
+        socket = context.socket(zmq.REQ)
 
-    def test_generate_date_time_3(self):
-        self.assertEqual(generate_random_date(1, -2), -1)
+        socket.connect("tcp://localhost:6666")
+
+        print("Getting Random Date For Test One")
+
+        socket.send_string("Please Send Random Date")
+
+        message = socket.recv()
+
+        print(f"We got date: {message.decode()}")
+
+        socket.send_string("Quit") 
+
+        context.destroy()
+
+        self.assertTrue(len(message) > 0)
+
 
 if __name__ == '__main__':
     unittest.main()

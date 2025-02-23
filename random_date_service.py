@@ -1,3 +1,4 @@
+import zmq
 import random 
 import datetime 
 
@@ -19,4 +20,28 @@ def generate_random_date():
     return rando_date
 
 
-# print(generate_random_date())
+
+if __name__ == "__main__":
+
+
+
+    context = zmq.Context()
+
+    socket = context.socket(zmq.REP)
+
+    socket.bind("tcp://*:6666")
+
+    while True:
+        new_message = socket.recv()
+        print(f"{new_message.decode()}")
+
+        if len(new_message) > 0:
+            if new_message.decode() == 'Quit': # Client asked server to quit
+                break
+
+        confirmation = str(generate_random_date())
+
+        socket.send_string(confirmation)
+    # Make a clean exit.
+    context.destroy()
+
