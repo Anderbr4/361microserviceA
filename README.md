@@ -4,10 +4,10 @@
 
 A.	Requesting Data:
         Please run random_date_service.py in a terminal.
-
-        
         To call the service create a zmq socket connection to port 6666 and send a request and then decode the response. 
         Ex. 
+
+
         
         context = zmq.Context()
         
