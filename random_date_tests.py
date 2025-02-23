@@ -1,9 +1,6 @@
 import unittest
 import zmq
 
-from random_date_service import (
-    generate_random_date
-)
 
 
 
