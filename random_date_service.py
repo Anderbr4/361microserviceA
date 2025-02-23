@@ -24,7 +24,8 @@ def generate_random_date():
 if __name__ == "__main__":
 
 
-
+    # this code accessed from my assignment 4 code
+    # accessed 02/22/25
     context = zmq.Context()
 
     socket = context.socket(zmq.REP)
