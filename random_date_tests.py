@@ -3,8 +3,6 @@ import zmq
 
 
 
-
-
 class TestAddFunction(unittest.TestCase):
     def test_generate_date_time_1(self):
         context = zmq.Context()
@@ -26,8 +24,6 @@ class TestAddFunction(unittest.TestCase):
         context.destroy()
 
         self.assertTrue(len(message) > 0)
-
-
 
 
 
