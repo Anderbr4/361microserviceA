@@ -1,11 +1,16 @@
 # 361microserviceA
 361 microservice A 
 A.	Requesting Data:
-Please run random_date_service.py in a terminal and then to call the service create a zmq socket connection to port 6666 and send a request and then decode the response. 
+        Please run random_date_service.py in a terminal and then to call the service create a zmq socket connection to port 6666 and send a request and then decode the response. 
+        
         context = zmq.Context()
+        
         socket = context.socket(zmq.REQ)
+        
         socket.connect("tcp://localhost:6666")
+        
         socket.send_string("Please Send Random Date")
+        
 
 B.	Receiving Data
 After sending the request the random_date_service will send a response. Please call the recv.() and also .decode() in order to get the random date. 
