@@ -24,4 +24,8 @@ After sending the request the random_date_service will send a response. Please c
         Rando_date = socket.recv()
 
 C.	UML
+
+
+
+
  ![microAuml drawio](https://github.com/user-attachments/assets/d4d9c86f-5b0c-41b9-9d38-555e18fad854)
